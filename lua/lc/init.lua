@@ -13,6 +13,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("lc.plugins")
+require("lazy").setup({spec ="lc.plugins",
+	change_detection = {notify = false }})
 
 vim.cmd.colorscheme("catppuccin")
