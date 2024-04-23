@@ -9,13 +9,13 @@ return {"tpope/vim-fugitive",
 		vim.keymap.set("n", "<leader>ggr", "<cmd>Git log --oneline --graph<cr")
 		vim.keymap.set("n", "<leader>gP", function ()
 			if vim.fn.confirm("Pull and rebase ?", "&yes\n&No") == 1 then
-				vim.cmd.Git({"pull","--rebase"})
+				vim.cmd({"Git pull --rebase"})
 			end
 		end)
 
 		vim.keymap.set("n", "<leader>gPm", function ()
 			if vim.fn.confirm("Pull and merge ?", "&yes\n&No") == 1 then
-				vim.cmd("Git pull --rebase=false")
+				vim.cmd({"pull --rebase=false"})
 			end
 		end)
 

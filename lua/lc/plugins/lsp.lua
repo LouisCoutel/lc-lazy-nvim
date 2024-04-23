@@ -29,9 +29,9 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
-		"pyright",
 		"biome",
 		"intelephense",
+				"jinja_lsp",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -40,6 +40,13 @@ return {
                         capabilities = capabilities
                     }
                 end,
+
+		["biome"] = function ()
+                    local lspconfig = require("lspconfig")
+			lspconfig.biome.setup {
+					capabilities = capabilities
+					}
+		end,
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -69,7 +76,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
