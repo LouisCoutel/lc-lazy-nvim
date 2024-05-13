@@ -1,9 +1,10 @@
 return {
-	'nvim-treesitter/nvim-treesitter',
-	build = ':TSUpdate',
-	config = function () 
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	config = function()
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = {"c",
+			ensure_installed = {
+				"c",
 				"vimdoc",
 				"bash",
 				"markdown",
@@ -17,12 +18,12 @@ return {
 				"elixir",
 				"heex",
 				"javascript",
-			"html",
+				"html",
 			},
 
-          		sync_install = false,
-          		highlight = { enable = true },
-          		indent = { enable = true },  
-        		})
-    	end
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
+		})
+	end,
 }
