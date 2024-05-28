@@ -19,6 +19,9 @@ return {
 				"heex",
 				"javascript",
 				"html",
+				"http",
+				"json",
+				"graphql"
 			},
 
 			sync_install = false,
